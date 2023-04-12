@@ -1,0 +1,47 @@
+<div class="container my-5 text-center">
+  <i *ngIf="isLoading" class="fa fa-spinner fa-spin py-3"></i>
+  <div *ngIf="isLoading" class="row">
+    <div *ngFor="let item of [].constructor(21)" class="col-md-4">
+      <div class="game card mb-4 grow shadow is-loading">
+        <div class="game-img">
+          <div class="image">
+            <img src="https://www.freetogame.com/g/345/thumbnail.jpg" alt="">
+          </div>
+        </div>
+      <div class="game-body content p-3">
+        <div class="d-flex justify-content-between align-items-center">
+          <h4 class="card-title text-truncate w-100">
+            <span>G</span>
+          </h4>
+        </div>
+      </div>
+    </div>
+    </div>
+</div>
+
+
+  <div *ngIf="!isLoading" class="row">
+    <div *ngFor="let game of gamesafter ; let index = index" class="col-md-4 mt-5">
+      <a routerLink="/gamedetails/{{game.id}}">
+        <div class="game card mb-4 grow shadow" tabindex="0">
+          <div class="game-img">
+            <img alt="" class="w-100" [src]="game.thumbnail">
+          </div>
+          <div class="game-body d-flex justify-content-between align-items-center p-3">
+            <h4 class="card-title text-truncate">{{game.title}}</h4>
+              <span class="badge badge-ftg py-2 px-2 float-right">
+                FREE
+              </span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <button *ngIf="length" (click)="loadMore()" class="btn btn-outline-secondary py-2 pt-1 more-btn text-center">
+    More Games
+    <i class="fas fa-angle-right"></i>
+  </button>
+</div>
+
+

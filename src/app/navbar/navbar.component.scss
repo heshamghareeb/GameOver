@@ -1,0 +1,14 @@
+.navbar{
+  background-color: #272b30!important;
+    border-bottom: 1px solid rgba(28,28,28,.6);
+    text-shadow: 1px 1px 1px rgba(0,0,0,.3);
+    .brand-text{
+      color: #FFF;
+      font-family: 'Xanh Mono', monospace;
+      .logo{
+        width: 70px;
+        filter: drop-shadow(1px 1px 3px #1983e6ce);
+      }
+    }
+}
+

@@ -1,0 +1,43 @@
+<div class="main-cont">
+  <div class="container p-lg-5">
+    <div class="register card o-hidden border-0 shadow-lg">
+      <div class="card-body p-0">
+        <div class="row">
+          <div class="col-lg-6 d-none d-lg-block bg-register-image"></div>
+          <div class="col-lg-6 login">
+            <div class="p-5">
+              <div class="text-center">
+                <img src="./assets/images/logo.png" alt="" height="72" class="mb-3">
+                <h1 class="h4 text-gray-900 mb-4">Log in to GameOver</h1>
+              </div>
+              <form (ngSubmit)="submitLoginForm(loginForm)" [formGroup]="loginForm" action=""  novalidate="" autocomplete="off" class="user ng-dirty ng-touched ng-valid">
+                <div class="form-group">
+                  <input formControlName="email" type="email" type="text" name="username" placeholder="Email" value="" required="" autocomplete="off" class="form-control form-control-user deep-dark py-2 ng-dirty ng-valid ng-touched">
+                  <div *ngIf="error" class="alert alert-danger py-0 mt-1">{{error}}</div>
+                </div>
+                  <div class="form-group">
+                    <input formControlName="password" type="password" name="password" placeholder="Password" autocomplete="off" class="form-control form-control-user deep-dark py-2 ng-dirty ng-valid ng-touched">
+                    </div>
+                    <button type="submit" name="submitButton" class="btn btn-primary btn-user btn-block w-100 py-2">
+                      <i *ngIf="isLoading" class="fa fa-spinner fa-spin"></i>
+                      <span *ngIf="!isLoading">Login</span>
+                      </button>
+                      </form>
+                      <hr>
+                      <div class="text-center">
+                        <a onclick="(()=>{alert('ههه اعمل اكونت جديد')})()" class="small a2 cursor">Forgot Password?</a>
+                      </div>
+                      <div class="text-center">
+                        <span class="small">Not a member yet? </span>
+                        <a  routerLink="/register" href="/register" class="small a2" >
+                          Create Account
+                          <i class="fas fa-chevron-right small"></i>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>

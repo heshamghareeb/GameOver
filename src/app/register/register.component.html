@@ -1,0 +1,93 @@
+<div class="main-cont">
+  <div class="container p-lg-5">
+    <div class="register card o-hidden border-0 shadow-lg">
+      <div class="card-body p-0">
+        <div class="row">
+          <div class="col-lg-6 d-none d-lg-block bg-register-image"></div>
+          <div class="col-lg-6 graay">
+            <div class="py-5 px-2">
+              <div class="text-center">
+                <h1 class="h4 text-gray-900 mb-4">Create My Account!</h1>
+              </div>
+
+              <form (ngSubmit)="submitRegisterForm(registerForm)" [formGroup]="registerForm" action="" novalidate="" autocomplete="off" class="user text-white ng-invalid ng-dirty ng-touched">
+
+                <div class="form-group row">
+                  <div class="col-sm-6 mb-3 mb-sm-0">
+                    <input formControlName="first_name" type="text" name="username" placeholder="First Name" autocomplete="off" required="" class="form-control form-control-user deep-dark ng-untouched ng-pristine ng-invalid">
+
+                    <div  *ngIf="registerForm.get('first_name')?.touched && registerForm.get('first_name')?.errors" class="alert alert-warning py-0 mt-1">
+                      <p class="m-0" *ngIf="registerForm.get('first_name')?.getError('required')">First name is required</p>
+                      <p class="m-0" *ngIf="registerForm.get('first_name')?.getError('minlength')">First name min lenght is 3</p>
+                      <p class="m-0" *ngIf="registerForm.get('first_name')?.getError('maxlength')">First name max lenght is 8</p>
+                    </div>
+                  </div>
+
+
+                    <div class="col-sm-6">
+                      <input formControlName="last_name" type="text" name="username" placeholder="Last Name" autocomplete="off" required="" class="form-control form-control-user deep-dark ng-untouched ng-pristine ng-invalid">
+
+                      <div  *ngIf="registerForm.get('last_name')?.touched && registerForm.get('last_name')?.errors" class="alert alert-warning py-0 mt-1">
+                        <p class="m-0" *ngIf="registerForm.get('last_name')?.getError('required')">Last name is required</p>
+                        <p class="m-0" *ngIf="registerForm.get('last_name')?.getError('minlength')">Last name min lenght is 3</p>
+                        <p class="m-0" *ngIf="registerForm.get('last_name')?.getError('maxlength')">Last name max lenght is 8</p>
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <div class="form-group">
+                    <input formControlName="email" type="email" name="email" placeholder="Email Address" autocomplete="off" required="" class="form-control form-control-user deep-dark text-white ng-dirty ng-valid ng-touched">
+                    <div  *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.errors" class="alert alert-warning py-0 mt-1">
+                      <p class="m-0" *ngIf="registerForm.get('email')?.getError('required')">Email is required</p>
+                      <p class="m-0" *ngIf="registerForm.get('email')?.getError('email')">Email format invalid</p>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <input formControlName="age" type="number" name="age" placeholder="age" autocomplete="off" required="" class="form-control form-control-user deep-dark text-white ng-untouched ng-pristine ng-invalid">
+
+                    <div  *ngIf="registerForm.get('age')?.touched && registerForm.get('age')?.errors" class="alert alert-warning py-0 mt-1">
+                      <p class="m-0" *ngIf="registerForm.get('age')?.getError('required')">Age is required</p>
+                      <p class="m-0" *ngIf="registerForm.get('age')?.getError('min')">Age min value is 16</p>
+                      <p class="m-0" *ngIf="registerForm.get('age')?.getError('max')">Age max value is 90</p>
+
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <input formControlName="password" type="password" name="password" placeholder="Password" autocomplete="off" required="" class="form-control form-control-user text-white deep-dark ng-dirty ng-valid ng-touched">
+                    <div  *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.errors" class="alert alert-warning py-0 mt-1">
+                      <p class="m-0" *ngIf="registerForm.get('password')?.getError('required')">Password is required</p>
+                      <p class="m-0" *ngIf="registerForm.get('password')?.getError('pattern')">Password must start with uppercase</p>
+                    </div>
+                  </div>
+
+                  <div *ngIf="error" class="alert alert-danger py-0 mt-1">{{error}}</div>
+
+                  <button [disabled]="registerForm.invalid"  type="submit" name="submitButton" class="btn btn-primary text-white submitButton w-100 py-2 btn-user btn-block">
+                    <span *ngIf="!isLoading">Create Account</span>
+                    <i *ngIf="isLoading" class="fa fa-spinner fa-spin"></i>
+                  </button>
+                </form>
+
+                <div class="text-center mt-2">
+                  <div class="text-muted small">This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy" class="text-secondary">Privacy Policy</a> and <a href="https://policies.google.com/terms" class="text-secondary">Terms of Service</a> apply.</div>
+                </div>
+
+                <hr>
+                <div class="text-center">
+                  <span class="small">Already a member?</span>
+                  <a routerLink="/login" class="small a2 cursor ms-2">
+                  Log In
+                  <i class="fas fa-chevron-right small"></i>
+                  </a>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
