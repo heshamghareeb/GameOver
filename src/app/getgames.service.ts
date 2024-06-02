@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class GetgamesService {
+  baseLink = 'https://www.freetogame.com/api/games';
   header= {
 		'X-RapidAPI-Key': '8f86b9eaa9msh0e6d5dfedb1eb80p1dba82jsn440848ee6e63',
 		'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com'
@@ -29,5 +30,5 @@ export class GetgamesService {
       }
     )
   }
-  
+
 }

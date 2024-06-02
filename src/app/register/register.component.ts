@@ -15,7 +15,7 @@ export class RegisterComponent {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
   }
-  
+
   error:string = '';
   isLoading:boolean = false;
   registerForm:FormGroup = new FormGroup({
@@ -28,22 +28,15 @@ export class RegisterComponent {
 
   submitRegisterForm(registerForm:FormGroup){
     this.isLoading = true;
-    console.log(registerForm.value);
-    console.log('registerForm.value');
+
     this._AuthService.signup(registerForm.value).subscribe({
       next:(response) => {
         this.isLoading = false;
         if (response.message === "success") {
           //Navigate home|login
           this._Router.navigate(['/login']);
-          console.log(response.message);
-          console.log('response.message');
-
         }else{
           this.error = response.message;
-          console.log(response);
-          console.log(response.message);
-          console.log('error response.message');
         }
       }
     })

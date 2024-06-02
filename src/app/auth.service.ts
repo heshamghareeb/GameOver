@@ -8,6 +8,7 @@ import jwtDecode from 'jwt-decode';
   providedIn: 'root'
 })
 export class AuthService {
+  authBaseUrl: string = 'https://movies-api.routemisr.com/';
 
   constructor(private _HttpClient:HttpClient,  private _Router:Router) {
     if (localStorage.getItem("userToken") != null) {
@@ -18,20 +19,18 @@ export class AuthService {
 
   saveUserData(){
     let encodedToken = JSON.stringify(localStorage.getItem("userToken"));
-    console.log(encodedToken);
-    console.log("encodedToken");
+
     let decodedToken:any = jwtDecode(encodedToken);
-    console.log(decodedToken);
-    console.log("decodedToken");
+
     this.userData.next(decodedToken);
   };
 
   signup(userData:object):Observable<any>{
-    return this._HttpClient.post('https://sticky-note-fe.vercel.app/signup/', userData);
+    return this._HttpClient.post(`${this.authBaseUrl}signup/`, userData);
   }
 
   signin(userData:object):Observable<any>{
-    return this._HttpClient.post('https://sticky-note-fe.vercel.app/signin/', userData);
+    return this._HttpClient.post(`${this.authBaseUrl}signin/`, userData);
   }
 
   signOut(){

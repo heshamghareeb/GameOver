@@ -31,16 +31,10 @@ export class LoginComponent {
 
   submitLoginForm(loginForm:any){
     this.isLoading = true;
-    console.log(loginForm.value);
-    console.log('loginForm.value');
     this._AuthService.signin(loginForm.value).subscribe({
       next:(response) => {
         this.isLoading = false;
         if (response.message === "success") {
-          console.log(response);
-          console.log('response');
-          console.log(response.message);
-          console.log('response.message');
           localStorage.setItem("userToken", response.token)
           this._AuthService.saveUserData();
           //Navigate home|login
@@ -48,9 +42,6 @@ export class LoginComponent {
 
         }else{
           this.error = response.message;
-          console.log(response);
-          console.log(response.message);
-          console.log('error response.message');
         }
       }
     })

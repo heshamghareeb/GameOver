@@ -62,7 +62,6 @@ export class GamesDetailsComponent implements OnInit{
     this.isLoading = true;
     this._GetgamesService.getGameDetails(this.gameId).subscribe({
       next:(game:GameDetails) => {
-        console.log(game);
         this.game = game
         this.imageUrl = 'https://www.freetogame.com/g/'+this.game.id+'/background.jpg'
       },
