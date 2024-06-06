@@ -1,0 +1,1 @@
+import{$ as o,Ab as s,hb as a,ib as r,vb as i}from"./chunk-PN7LSG4T.js";var d=(()=>{let e=class e{};e.\u0275fac=function(n){return new(n||e)},e.\u0275cmp=o({type:e,selectors:[["app-search"]],standalone:!0,features:[s],decls:2,vars:0,template:function(n,p){n&1&&(a(0,"p"),i(1,"search works!"),r())}});let t=e;return t})();export{d as SearchComponent};
