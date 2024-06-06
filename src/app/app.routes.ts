@@ -5,9 +5,31 @@ import { authGuard } from './core/shared/guards/auth.guard';
 
 
 export const routes: Routes = [
+
+//test
+  // {
+  //   path: '',
+  //   loadComponent: ()=>  import('../app/core/shared/components/layot-blank/layot-blank.component').then(() => LayotBlankComponent),
+  //   children: [
+  //     {
+  //       path: '',
+  //       redirectTo: 'home',
+  //       pathMatch: 'full' ,
+  //     },
+  //     {
+  //       path: 'home',
+  //       // pathMatch: 'full' ,
+  //       loadComponent: () => import('./views/home/home.component').then((m) => m.HomeComponent),
+  //       title: 'Home',
+  //     },
+  //   ]
+  // },
+
     // LazyLoading Public Routing For Blank Pag
+
+
     {
-      canActivate:[authGuard],
+      // canActivate:[authGuard],
       path: '',
       loadComponent: ()=>  import('../app/core/shared/components/layot-blank/layot-blank.component').then(() => LayotBlankComponent),
       children: [
